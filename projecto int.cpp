@@ -39,7 +39,8 @@ char scaleHappy(int x) {
 	else {
 		system("cls");
 		cout << "\nPlease, try again [MOUTH ERROR]" << endl;
-	}
+	} return 0;
+	
 }
 
 //...cara trizte
@@ -62,7 +63,8 @@ char scaleSad(int x) {
 	else {
 		system("cls");
 		cout << "\nPlease, try again [MOUTH ERROR]" << endl;
-	}
+	} return 0;
+	
 }
 
 //...cara loca
@@ -108,19 +110,19 @@ char scaleAngry(int x) {
 	else {
 		system("cls");
 		cout << "\nPlease, try again [MOUTH ERROR]" << endl;
-	} 
+	} return 0;
 }
 
 //funcion para los ojos
 char eyeTypes(int eyes) {
-		if (eyes == 1 || eyes == 2 || eyes == 3 || eyes == 4 || eyes == 5) {
-			eyes = eyes - 1;
-			return face01.feyes[eyes];
-		}
-		else {
-			system("cls");
-			cout << "\nPlease enter the correct prompt next time! [EYE ERROR]" << endl;
-		}
+	if (eyes == 1 || eyes == 2 || eyes == 3 || eyes == 4 || eyes == 5) {
+		eyes = eyes - 1;
+		return face01.feyes[eyes];
+	}
+	else {
+		system("cls");
+		cout << "\nPlease enter the correct prompt next time! [EYE ERROR]" << endl;
+	} return 0;
 }
 
 //funcion para la nariz
@@ -132,20 +134,13 @@ char noseTypes(int nose) {
 	else {
 		system("cls");
 		cout << "\nPlease enter the correct prompt next time! [NOSE ERROR]" << endl;
-	}
+	} return 0;
 }
 
 int main()
 {
 	int menu, eyes, nose, scale;
 	ofstream textfile("character.txt");
-
-
-	//combinacion de los char para formar un string
-	string Character01 = string() + eyeTypes(eyes) + noseTypes(nose) + scaleHappy(scale);
-	string Character02 = string() + eyeTypes(eyes) + noseTypes(nose) + scaleSad(scale);
-	string Character03 = string() + eyeTypes(eyes) + noseTypes(nose) + scaleCrazy(scale);
-	string Character04 = string() + eyeTypes(eyes) + noseTypes(nose) + scaleAngry(scale);
 
 	cout << "Introductory message" << endl;
 	cout << "Choose personality type" << endl;
@@ -162,21 +157,22 @@ int main()
 		cout << "You chosed a happy face!\n";
 		cout << "Please, on a scale on 1 to 10, how happy should it be?\n";
 		cin >> scale;
-		system("cls");
 		scaleHappy(scale);
+		system("cls");
 		cout << "How should it's eyes be?\n";
 		cout << "1) Normal\n2) Teasing\n3) Big\n4) Funny\n5) Cool" << endl;
 		cin >> eyes;
-		system("cls");
 		eyeTypes(eyes);
+		system("cls");
 		cout << "And how should the nose be?\n";
 		cout << "1) Normal\n2) Small\n3) Big\n4) Very Big\n5) Long\n6) Very Long" << endl;
 		cin >> nose;
-		system("cls");
 		noseTypes(nose);
-		cout << Character01;
-		textfile << Charater01;
-
+		system("cls");
+		cout << eyeTypes(eyes);
+		cout << noseTypes(nose);
+		cout << scaleHappy(scale);
+		textfile << eyeTypes(eyes) + noseTypes(nose) + scaleHappy(scale);
 		break;
 		//si elige trizte
 	case 2:
@@ -185,19 +181,22 @@ int main()
 		cout << "You chosed a sad face!\n";
 		cout << "Please, on a scale on 1 to 10, how sad should it be?\n";
 		cin >> scale;
-		system("cls");
 		scaleSad(scale);
+		system("cls");
 		cout << "How should it's eyes be?\n";
 		cout << "1) Normal\n2) Teasing\n3) Big\n4) Funny\n5) Cool" << endl;
 		cin >> eyes;
-		system("cls");
 		eyeTypes(eyes);
+		system("cls");
 		cout << "And how should the nose be?\n";
 		cout << "1) Normal\n2) Small\n3) Big\n4) Very Big\n5) Long\n6) Very Long" << endl;
 		cin >> nose;
-		system("cls");
 		noseTypes(nose);
-		cout << Character02;
+		system("cls");
+		cout << eyeTypes(eyes);
+		cout << noseTypes(nose);
+		cout << scaleSad(scale);
+		textfile << eyeTypes(eyes) + noseTypes(nose) + scaleSad(scale);
 
 		break;
 		//si elige loca
@@ -207,19 +206,22 @@ int main()
 		cout << "You chosed a crazy face!\n";
 		cout << "Please, on a scale on 1 to 10, how crazy should it be?\n";
 		cin >> scale;
-		system("cls");
 		scaleCrazy(scale);
+		system("cls");
 		cout << "How should it's eyes be?\n";
 		cout << "1) Normal\n2) Teasing\n3) Big\n4) Funny\n5) Cool" << endl;
 		cin >> eyes;
-		system("cls");
 		eyeTypes(eyes);
+		system("cls");
 		cout << "And how should the nose be?\n";
 		cout << "1) Normal\n2) Small\n3) Big\n4) Very Big\n5) Long\n6) Very Long" << endl;
 		cin >> nose;
-		system("cls");
 		noseTypes(nose);
-		cout << Character03;
+		system("cls");
+		cout << eyeTypes(eyes);
+		cout << noseTypes(nose);
+		cout << scaleCrazy(scale);
+		textfile << eyeTypes(eyes) + noseTypes(nose) + scaleCrazy(scale);
 
 		break;
 		//si elige enojada
@@ -229,19 +231,22 @@ int main()
 		cout << "You chosed an angry face!\n";
 		cout << "Please, on a scale on 1 to 10, how angry should it be?\n";
 		cin >> scale;
-		system("cls");
 		scaleAngry(scale);
+		system("cls");
 		cout << "How should it's eyes be?\n";
 		cout << "1) Normal\n2) Teasing\n3) Big\n4) Funny\n5) Cool" << endl;
 		cin >> eyes;
-		system("cls");
 		eyeTypes(eyes);
+		system("cls");
 		cout << "And how should the nose be?\n";
 		cout << "1) Normal\n2) Small\n3) Big\n4) Very Big\n5) Long\n6) Very Long" << endl;
 		cin >> nose;
-		system("cls");
 		noseTypes(nose);
-		cout << Character04;
+		system("cls");
+		cout << eyeTypes(eyes);
+		cout << noseTypes(nose);
+		cout << scaleAngry(scale);
+		textfile << eyeTypes(eyes) + noseTypes(nose) + scaleAngry(scale);
 
 		break;
 		//si no elige ninguno de los 4
