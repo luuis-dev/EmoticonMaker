@@ -1,9 +1,11 @@
-
+//Luis Toro Marty
+//Abdiel Alviles Almodovar
 #include <iostream>
 #include <string>
 #include <fstream>
 #include <Windows.h>
-#include <cmath>
+#include <chrono>
+#include <thread>
 using namespace std;
 
 int i;
@@ -141,6 +143,7 @@ int main()
 {
 	int menu, eyes, nose, scale;
 	ofstream textfile("character.txt");
+	chrono::seconds duration(3);
 
 	cout << "Introductory message" << endl;
 	cout << "Choose personality type" << endl;
@@ -151,7 +154,7 @@ int main()
 	//menu para usuario
 	switch (menu) {
 		//si elige feliz
-	case 1:
+	case 1: {
 		system("cls");
 
 		cout << "You chosed a happy face!\n";
@@ -169,11 +172,11 @@ int main()
 		cin >> nose;
 		noseTypes(nose);
 		system("cls");
-		cout << eyeTypes(eyes);
-		cout << noseTypes(nose);
-		cout << scaleHappy(scale);
-		textfile << eyeTypes(eyes) + noseTypes(nose) + scaleHappy(scale);
+		this_thread::sleep_for(duration);
+		cout << "\n\n" << eyeTypes(eyes) << noseTypes(nose) << scaleHappy(scale) << "\n\n";
+		textfile << eyeTypes(eyes) << noseTypes(nose) << scaleHappy(scale);
 		break;
+	}
 		//si elige trizte
 	case 2:
 		system("cls");
@@ -193,9 +196,8 @@ int main()
 		cin >> nose;
 		noseTypes(nose);
 		system("cls");
-		cout << eyeTypes(eyes);
-		cout << noseTypes(nose);
-		cout << scaleSad(scale);
+		this_thread::sleep_for(duration);
+		cout << "\n\n" << eyeTypes(eyes) << noseTypes(nose) << scaleSad(scale) << "\n\n";
 		textfile << eyeTypes(eyes) + noseTypes(nose) + scaleSad(scale);
 
 		break;
@@ -218,9 +220,8 @@ int main()
 		cin >> nose;
 		noseTypes(nose);
 		system("cls");
-		cout << eyeTypes(eyes);
-		cout << noseTypes(nose);
-		cout << scaleCrazy(scale);
+		this_thread::sleep_for(duration);
+		cout <<"\n\n" << eyeTypes(eyes) << noseTypes(nose) << scaleCrazy(scale) << "\n\n";
 		textfile << eyeTypes(eyes) + noseTypes(nose) + scaleCrazy(scale);
 
 		break;
@@ -243,9 +244,8 @@ int main()
 		cin >> nose;
 		noseTypes(nose);
 		system("cls");
-		cout << eyeTypes(eyes);
-		cout << noseTypes(nose);
-		cout << scaleAngry(scale);
+		this_thread::sleep_for(duration);
+		cout << "\n\n" << eyeTypes(eyes) << noseTypes(nose) << scaleAngry(scale) << "\n\n";
 		textfile << eyeTypes(eyes) + noseTypes(nose) + scaleAngry(scale);
 
 		break;
@@ -253,6 +253,12 @@ int main()
 	default:
 		system("cls");
 		cout << "\nPlease choose one of the four options next time!";
+		do {
+			cout << "  restart the program if you wish to continue  ";
+		} while (menu > 4 && menu <= 0);
+		do {
+			cout << ":)  ";
+		} while (menu > 4 && menu <= 0);
 	}
 	return 0;
 }
