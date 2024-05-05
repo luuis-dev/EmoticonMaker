@@ -1,14 +1,11 @@
 //Luis Toro Marty
 //Abdiel Alviles Almodovar
 #include <iostream>
-#include <string>
 #include <fstream>
 #include <Windows.h>
 #include <chrono>
 #include <thread>
 using namespace std;
-
-int i;
 
 struct Face{ //Propiedades de las caras
 	char happy[5] = { ']', '}', ')', '>', 'D' };
